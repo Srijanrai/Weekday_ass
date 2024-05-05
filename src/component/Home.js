@@ -1,6 +1,7 @@
 import React from 'react'
 import './Global.css'
 import Header from './Header'
+import Filter from './Filter'
 function Home() {
   return (
     <div className='home_css'>
@@ -13,6 +14,7 @@ function Home() {
         </div>
         </div>
         <div className='filter_css'>
+            <Filter/>
         </div>
     </div>
   )
