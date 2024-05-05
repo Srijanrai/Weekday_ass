@@ -15,8 +15,6 @@ function Card(props) {
     const [page, setPage] = useState(0);
     const [fetchLimit, setFetchLimit] = useState(9);
     const [fetchOffset, setFetchOffset] = useState(0);
-    const wrapperRef = useRef(null);
-    const fetchUrl = "https://api.weekday.technology/adhoc/getSampleJdJSON";
 
     const handleScroll = () => {
         setFetch(true);
@@ -51,7 +49,7 @@ function Card(props) {
 
 
     return (
-        <div ref={wrapperRef} className='card_out'>
+        <div  className='card_out'>
             <div className='card_in'>
                 <div className='card_in1'>
 
