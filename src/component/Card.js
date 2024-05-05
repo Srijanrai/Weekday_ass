@@ -50,7 +50,17 @@ function Card(props) {
                 <div className='card_in1'>
 
                     {
-                        fetched && Array.isArray(cards) && cards.map((detail, key) => (
+                        fetched && Array.isArray(cards) && cards.filter(card => {
+                            return (
+                                (exp === '' || (exp && exp.toLowerCase() === card.minExp &&card.minExp.toLowerCase())) &&
+                                (company === '' || (company && company.toLowerCase() === card.companyName&&card.companyName.toLowerCase())) &&
+                                (location === '' || (location && location.toLowerCase() === card.location&&card.location.toLowerCase())) &&
+                                (jobtype === '' || (jobtype && jobtype.toLowerCase() === card.jobType&&card.jobType.toLowerCase())) &&
+                                (role === '' || (role && role.toLowerCase() === card.jobRole&&card.jobRole.toLowerCase())) &&
+                                (techstack === '' || (techstack && techstack.toLowerCase() === card.techStack&&card.techStack.toLowerCase())) &&
+                                (pay === '' || (pay && pay.toLowerCase() === card.maxJdSalary&&card.maxJdSalary.toLowerCase()))
+                            );
+                        }).map((detail, key) => (
                             <Detail card={detail} index={key} />
                         ))
                     }
