@@ -18,12 +18,18 @@ function Card(props) {
     const wrapperRef = useRef(null);
     const fetchUrl = "https://api.weekday.technology/adhoc/getSampleJdJSON";
 
+    const handleScroll = () => {
+        setFetch(true);
+        setPage((prevPage) => prevPage + 1);
+        setFetchOffset(fetchOffset + 10);
+        setFetchLimit(fetchLimit + 9);
+    };
     useEffect(() => {
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         const body = JSON.stringify({
-            "limit": 9,
-            "offset": 0
+            "limit": fetchLimit,
+            "offset": fetchOffset
         });
         const requestOptions = {
             method: "POST",
@@ -64,6 +70,11 @@ function Card(props) {
                             <Detail card={detail} index={key} />
                         ))
                     }
+                    <div className='load_more'>
+                        <div className='load_inside'>
+                            <span className='load' onClick={handleScroll}>Load More..</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
