@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Card from './Card';
 
 function Filter() {
     const[exp,setExp] = useState('');
@@ -38,6 +39,7 @@ function Filter() {
                 </div>
             </div>
             <div className='filter'>
+                <Card exp={exp} company={company} location={location} jobtype={jobtype} techstack={techstack} role={role} pay={pay}/>
             </div>
         </div>
     )
